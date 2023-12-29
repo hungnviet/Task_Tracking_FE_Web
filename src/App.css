@@ -1,0 +1,46 @@
+* {
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.App {
+  text-align: center;
+}
+
+.LoginPage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+.loginPageImage {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 50vh;
+}
+
+.loginPageImage img {
+  height: 100%;
+  width: 80%;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginContainer input {
+  height: 40px;
+  width: 50%;
+  border-radius: 10px;
+  border-color: black;
+  font-size: medium;
+}
