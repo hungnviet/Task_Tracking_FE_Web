@@ -160,7 +160,7 @@
   border: 2px solid #023047;
   position: absolute;
   bottom: 10px;
-  left: 180px
+  right: 80px
 }
 
 .input {
@@ -258,4 +258,55 @@
   display: flex;
   flex-direction: column;
   row-gap: 5px;
+}
+
+.task_tag2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 10px;
+  border: 2px solid #8d99ae;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.task_tag2_finish {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #bde0fe;
+}
+
+.subTaskContainer {
+  padding-left: 3vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 2px;
+}
+
+.subTaskTag {
+  display: flex;
+  flex-direction: row;
+  column-gap: 2px;
+}
+
+.icon_finish {
+  position: absolute;
+  right: -25px;
+  top: -25px;
+  background-color: white;
+}
+
+.member_Container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 10px;
 }

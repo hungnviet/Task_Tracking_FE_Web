@@ -194,6 +194,18 @@ function Workspace() {
 
         }
     }
+    function handleCheckMainTask(index) {
+        const curState = [...task].at(index).state;
+        let arr = [...task];
+        arr[index].state = !curState;
+        setTask(arr);
+    }
+    function handleCheckSubTask(index, subIndex) {
+        const curState = [...task].at(index).subTask.at(subIndex).state;
+        let arr = [...task];
+        arr.at(index).subTask.at(subIndex).state = !curState;
+        setTask(arr);
+    }
     return (
         <div className="homepage">
             <div className="header">
@@ -268,23 +280,28 @@ function Workspace() {
                     <p>{month} {year}</p>
                     {
                         task.map((el, index) => (
-                            <div className="task_tag" key={index}>
+                            <div className="task_tag2" key={index}>
+                                {
+                                    el.state && (<div className="icon_finish">
+                                        <img src={require('../Images/iconFinish.png')} />
+                                    </div>)
+                                }
                                 <div className="task_content">
-                                    <div>
-                                        <input type="checkBox" value={el.state}></input>
-                                        {el.name}
+                                    <div style={checkbox}>
+                                        <input type="checkBox" value={el.state} onClick={() => handleCheckMainTask(index)}></input>
+                                        <p style={{ fontSize: 20, fontWeight: 'bold' }}>{el.name}</p>
                                     </div>
-                                    <div>
+                                    <div className="subTaskContainer">
                                         {
                                             el.subTask.map((subEl, subIndex) => (
-                                                <div key={subIndex}>
-                                                    <input type="checkBox" value={subEl.state}></input>
-                                                    {subEl.name}
+                                                <div key={subIndex} className="subTaskTag" >
+                                                    <input type="checkBox" value={subEl.state} onClick={() => handleCheckSubTask(index, subIndex)}></input>
+                                                    <span className={subEl.state === true ? "checked-item" : "non-checked-item"}>{subEl.name}</span>
                                                 </div>
                                             ))
                                         }
                                     </div>
-                                    <div>
+                                    <div className="member_Container">
                                         {
                                             el.participant.map((subEl) => (<p>@{subEl.name} </p>))
                                         }
@@ -322,5 +339,11 @@ const btnStyle = {
     with: 30,
     height: 30
 
+}
+const checkbox = {
+    display: "flex",
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    columnGap: 10
 }
 export default Workspace;
